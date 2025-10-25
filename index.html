@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Court Development Timeline</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .timeline {
+            padding: 40px;
+        }
+
+        .month-section {
+            margin-bottom: 60px;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 40px;
+        }
+
+        .month-section:last-child {
+            border-bottom: none;
+        }
+
+        .month-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .month-badge {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-right: 20px;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .month-title {
+            font-size: 1.5rem;
+            color: #2a5298;
+            font-weight: 600;
+        }
+
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .photo-item {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: #f8f9fa;
+        }
+
+        .photo-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .photo-item img,
+        .photo-item video {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .photo-caption {
+            padding: 15px;
+            background: white;
+            font-size: 0.9rem;
+            color: #666;
+            text-align: center;
+        }
+
+        .video-container {
+            position: relative;
+            background: #000;
+        }
+
+        .video-container video {
+            width: 100%;
+            height: auto;
+        }
+
+        footer {
+            background: #f8f9fa;
+            padding: 30px;
+            text-align: center;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 6px;
+            background: #e0e0e0;
+            border-radius: 3px;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            animation: grow 2s ease-in-out;
+        }
+
+        @keyframes grow {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            header {
+                padding: 40px 20px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .subtitle {
+                font-size: 1rem;
+            }
+
+            .timeline {
+                padding: 20px;
+            }
+
+            .month-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .month-badge {
+                margin-bottom: 10px;
+                margin-right: 0;
+            }
+
+            .photo-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            .month-badge {
+                font-size: 0.9rem;
+                padding: 8px 16px;
+            }
+
+            .month-title {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Courts with a View</h1>
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 100%;"></div>
+            </div>
+        </header>
+
+        <div class="timeline">
+            <!-- 1H 2024 -->
+            <div class="month-section">
+                <div class="month-header">
+                    <div class="month-badge">1H 2024</div>
+                    <div class="month-title">Site Selection</div>
+                </div>
+                <div class="photo-grid">
+                    <div class="photo-item">
+                        <img src="https://raw.githubusercontent.com/mbryzek/static/refs/heads/main/michaelbryzek/courts/2024-01-a.w800.JPG" alt="January 2024 - So beautiful" loading="lazy">
+                        <div class="photo-caption">So beautiful</div>
+                    </div>
+                    <div class="photo-item">
+                        <img src="https://raw.githubusercontent.com/mbryzek/static/refs/heads/main/michaelbryzek/courts/2024-06-a.w800.JPG" alt="June 2024 - Site before construction" loading="lazy">
+                        <div class="photo-caption">Original site view</div>
+                    </div>
+                    <div class="photo-item">
+                        <img src="https://raw.githubusercontent.com/mbryzek/static/refs/heads/main/michaelbryzek/courts/2024-06-b.w800.JPG" alt="June 2024 - Land of ferns" loading="lazy">
+                        <div class="photo-caption">Land of ferns</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- November 2024 -->
+            <div class="month-section">
+                <div class="month-header">
+                    <div class="month-badge">Nov 2024</div>
+                    <div class="month-title">Early Site Preparation</div>
+                </div>
+                <div class="photo-grid">
+                    <div class="photo-item">
+                        <img src="https://raw.githubusercontent.com/mbryzek/static/refs/heads/main/michaelbryzek/courts/2024-11-a.w800.jpg" alt="November 2024 - Site preparation begins" loading="lazy">
+                        <div class="photo-caption">Initial site work begins</div>
+                    </div>
+                    <div class="photo-item">
+                        <img src="https://raw.githubusercontent.com/mbryzek/static/refs/heads/main/michaelbryzek/courts/2024-11-b.w800.jpg" alt="November 2024 - Preparation progress" loading="lazy">
+                        <div class="photo-caption">Preparation work progressing</div>
+                    </div>
+                    <div class="photo-item">
+                        <img src="https://raw.githubusercontent.com/mbryzek/static/refs/heads/main/michaelbryzek/courts/2024-11-c.w800.jpg" alt="November 2024 - Site ready" loading="lazy">
+                        <div class="photo-caption">Site staged for construction</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- May 2025 -->
+            <div class="month-section">
+                <div class="month-header">
+                    <div class="month-badge">May 2025</div>
+                    <div class="month-title">First we need drainage</div>
+                </div>
+                <div class="photo-grid">
+                    <div class="photo-item">
+                        <img src="https://raw.githubusercontent.com/mbryzek/static/refs/heads/main/michaelbryzek/courts/2025-05-a.w800.jpg" alt="May 2025 - Drainage work begins" loading="lazy">
+                        <div class="photo-caption">Drainage installation begins</div>
+                    </div>
+                    <div class="photo-item">
+                        <img src="https://raw.githubusercontent.com/mbryzek/static/refs/heads/main/michaelbryzek/courts/2025-05-b.w800.jpg" alt="May 2025 - Water everywhere" loading="lazy">
+                        <div class="photo-caption">Water everywhere</div>
+                    </div>
+                    <div class="photo-item">
+                        <img src="https://raw.githubusercontent.com/mbryzek/static/refs/heads/main/michaelbryzek/courts/2025-05-c.w800.jpg" alt="May 2025 - 32 ton hammer!" loading="lazy">
+                        <div class="photo-caption">32 ton hammer!</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- June 2025 -->
+            <div class="month-section">
+                <div class="month-header">
+                    <div class="month-badge">Jun 2025</div>
+                    <div class="month-title">Foundation & Site Work</div>
+                </div>
+                <div class="photo-grid">
+                    <div class="photo-item">
+                        <img src="https://raw.githubusercontent.com/mbryzek/static/refs/heads/main/michaelbryzek/courts/2025-06-a.w800.JPG" alt="June 2025 - Early foundation work" loading="lazy">
+                        <div class="photo-caption">Early foundation work begins</div>
+                    </div>
+                    <div class="photo-item">
+                        <img src="https://raw.githubusercontent.com/mbryzek/static/refs/heads/main/michaelbryzek/courts/2025-06-b.w800.jpg" alt="June 2025 - Foundation progress" loading="lazy">
+                        <div class="photo-caption">Foundation work progressing</div>
+                    </div>
+                    <div class="photo-item">
+                        <img src="https://raw.githubusercontent.com/mbryzek/static/refs/heads/main/michaelbryzek/courts/2025-06-c.w800.jpg" alt="June 2025 - Fence posts installed" loading="lazy">
+                        <div class="photo-caption">Fence posts are in!</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- July 2025 -->
+            <div class="month-section">
+                <div class="month-header">
+                    <div class="month-badge">Jul 2025</div>
+                    <div class="month-title">Ground Preparation</div>
+                </div>
+                <div class="photo-grid">
+                    <div class="photo-item">
+                        <img src="https://raw.githubusercontent.com/mbryzek/static/refs/heads/main/michaelbryzek/courts/2025-07-a.w800.JPG" alt="July 2025 - Ground leveling" loading="lazy">
+                        <div class="photo-caption">Ground leveling and grading</div>
+                    </div>
+                    <div class="photo-item">
+                        <img src="https://raw.githubusercontent.com/mbryzek/static/refs/heads/main/michaelbryzek/courts/2025-07-b.w800.JPG" alt="July 2025 - Site preparation" loading="lazy">
+                        <div class="photo-caption">getting htere</div>
+                    </div>
+                    <div class="photo-item">
+                        <img src="https://raw.githubusercontent.com/mbryzek/static/refs/heads/main/michaelbryzek/courts/2025-07-c.w800.JPG" alt="July 2025 - Progress" loading="lazy">
+                        <div class="photo-caption">Progress!</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- August 2025 -->
+            <div class="month-section">
+                <div class="month-header">
+                    <div class="month-badge">Aug 2025</div>
+                    <div class="month-title">Concrete & Post-Tensioning</div>
+                </div>
+                <div class="photo-grid">
+                    <div class="photo-item">
+                        <img src="https://raw.githubusercontent.com/mbryzek/static/refs/heads/main/michaelbryzek/courts/2025-08-a.w800.JPG" alt="August 2025 - Pavilion construction" loading="lazy">
+                        <div class="photo-caption">Pavilion!</div>
+                    </div>
+                    <div class="photo-item">
+                        <img src="https://raw.githubusercontent.com/mbryzek/static/refs/heads/main/michaelbryzek/courts/2025-08-f.w800.jpeg" alt="August 2025 - Laying post tension cables" loading="lazy">
+                        <div class="photo-caption">Laying post tension cables</div>
+                    </div>
+                    <div class="photo-item">
+                        <img src="https://raw.githubusercontent.com/mbryzek/static/refs/heads/main/michaelbryzek/courts/2025-09-e.w800.jpg" alt="August 2025 - Finally the pour!!" loading="lazy">
+                        <div class="photo-caption">Finally the pour!!</div>
+                    </div>
+                    <div class="photo-item video-container">
+                        <video controls preload="metadata">
+                            <source src="https://raw.githubusercontent.com/mbryzek/static/refs/heads/main/michaelbryzek/courts/2025-08-d.MOV" type="video/quicktime">
+                            <source src="https://raw.githubusercontent.com/mbryzek/static/refs/heads/main/michaelbryzek/courts/2025-08-d.MOV" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <div class="photo-caption">Post-tensioning the concrete slab</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- September 2025 -->
+            <div class="month-section">
+                <div class="month-header">
+                    <div class="month-badge">Sep 2025</div>
+                    <div class="month-title">Getting Close!</div>
+                </div>
+                <div class="photo-grid">
+                    <div class="photo-item">
+                        <img src="https://raw.githubusercontent.com/mbryzek/static/refs/heads/main/michaelbryzek/courts/2025-09-a.w800.jpg" alt="September 2025 - Court completion" loading="lazy">
+                        <div class="photo-caption">Courts nearing completion</div>
+                    </div>
+                    <div class="photo-item">
+                        <img src="https://raw.githubusercontent.com/mbryzek/static/refs/heads/main/michaelbryzek/courts/2025-09-b.w800.JPEG" alt="September 2025 - Light pole construction" loading="lazy">
+                        <div class="photo-caption">Light pole construction</div>
+                    </div>
+                    <div class="photo-item">
+                        <img src="https://raw.githubusercontent.com/mbryzek/static/refs/heads/main/michaelbryzek/courts/2025-09-c.w800.JPEG" alt="September 2025 - Pro cushion installation" loading="lazy">
+                        <div class="photo-caption">Pro cushion installation</div>
+                    </div>
+                    <div class="photo-item">
+                        <img src="https://raw.githubusercontent.com/mbryzek/static/refs/heads/main/michaelbryzek/courts/2025-09-d.w800.JPEG" alt="September 2025 - Fencing" loading="lazy">
+                        <div class="photo-caption">Fencing</div>
+                    </div>
+                    <div class="photo-item">
+                        <img src="https://raw.githubusercontent.com/mbryzek/static/refs/heads/main/michaelbryzek/courts/2025-09-f.w800.jpg" alt="September 2025 - Clubhouse!" loading="lazy">
+                        <div class="photo-caption">Clubhouse!</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- October 2025 -->
+            <div class="month-section">
+                <div class="month-header">
+                    <div class="month-badge">Oct 2025</div>
+                    <div class="month-title">Final Touches & Completion</div>
+                </div>
+                <div class="photo-grid">
+                    <div class="photo-item">
+                        <img src="https://raw.githubusercontent.com/mbryzek/static/refs/heads/main/michaelbryzek/courts/2025-10-a.w800.jpg" alt="October 2025 - First coat of paint" loading="lazy">
+                        <div class="photo-caption">First coat of paint</div>
+                    </div>
+                    <div class="photo-item">
+                        <img src="https://raw.githubusercontent.com/mbryzek/static/refs/heads/main/michaelbryzek/courts/2025-10-b.w800.JPG" alt="October 2025 - Almost ready" loading="lazy">
+                        <div class="photo-caption">Courts nearly complete</div>
+                    </div>
+                    <div class="photo-item">
+                        <img src="https://raw.githubusercontent.com/mbryzek/static/refs/heads/main/michaelbryzek/courts/2025-10-c.w800.JPG" alt="October 2025 - Completed" loading="lazy">
+                        <div class="photo-caption">First Game!</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Courts Complete -->
+            <div class="month-section">
+                <div class="month-header">
+                    <div class="month-badge">Complete</div>
+                    <div class="month-title">Courts Complete</div>
+                </div>
+                <div style="text-align: center; padding: 20px 0;">
+                    <img src="https://raw.githubusercontent.com/mbryzek/static/refs/heads/main/michaelbryzek/courts/2025-10-complete.w1200.JPG" alt="Courts Complete" loading="lazy" style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.2);">
+                </div>
+            </div>
+
+            <!-- Drone Photography -->
+            <div class="month-section">
+                <div class="month-header">
+                    <div class="month-badge">Aerial View</div>
+                    <div class="month-title">From Above - Drone Photography</div>
+                </div>
+                <div class="photo-grid">
+                    <div class="photo-item">
+                        <img src="https://raw.githubusercontent.com/mbryzek/static/refs/heads/main/michaelbryzek/courts/2025-10-drone-a.w800.PNG" alt="Drone view - Complete facility overview" loading="lazy">
+                        <div class="photo-caption">Complete facility from above</div>
+                    </div>
+                    <div class="photo-item">
+                        <img src="https://raw.githubusercontent.com/mbryzek/static/refs/heads/main/michaelbryzek/courts/2025-10-drone-b.w800.PNG" alt="Drone view - Court with a view!" loading="lazy">
+                        <div class="photo-caption">Court with a view!</div>
+                    </div>
+                    <div class="photo-item">
+                        <img src="https://raw.githubusercontent.com/mbryzek/static/refs/heads/main/michaelbryzek/courts/2025-10-drone-c.w800.PNG" alt="Drone view - Above the clubhouse" loading="lazy">
+                        <div class="photo-caption">Above the clubhouse</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p><strong>Court Development Timeline</strong></p>
+            <p style="margin-top: 10px;">January 2024 - October 2025</p>
+        </footer>
+    </div>
+</body>
+</html>
